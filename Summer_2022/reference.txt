@@ -1,0 +1,14 @@
+Newport SMC100 (no dead) setting steps:
+
+0. download the driver from:
+ftp://download.newport.com/MotionControl/Current/MotionControllers/SMC100/Software/
+(ftp type: copy the link to your FILE EXPLORER in your laptop/computer, NOT the browser)
+
+1. Connect the device (RS232 out, USB to laptop/computer)
+2. Open NI-MAX, set Baud rate=57600, set Flow control=XON/XOFF, then save.
+3. Put the driver (SMC100) to LabVIEW XXXX/user.lib
+4. Open 'SMC100_Communication.llb'
+5. 9 test on port_init.vi and read_write.vi
+	- port_init.vi: Use different 'SerialPort' number to run the program until no error given out, 
+it will give you the connection name (VISA Handle out), use this name for other vi's 'VISA Handle in'
+	- read_write.vi: Use 'VISA Handle out' from port_init.vi to run the program. If no error, then the driver works.
